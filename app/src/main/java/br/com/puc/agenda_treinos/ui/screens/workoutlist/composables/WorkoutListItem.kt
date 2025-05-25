@@ -8,6 +8,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import br.com.puc.agenda_treinos.data.model.Workout
 
@@ -20,7 +21,15 @@ fun WorkoutListItem(workout: Workout, onClick: () -> Unit, onDelete: () -> Unit)
             .fillMaxWidth()
             .padding(vertical = 4.dp, horizontal = 8.dp)
             .clickable(onClick = onClick),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = Color(0xFF595959)
+            // Ou você pode usar uma cor específica:
+            // containerColor = Color(0xFF4CAF50) // Um verde, por exemplo
+            // containerColor = Color.LightGray // Outra opção
+        )
+
     ) {
         Row(
             modifier = Modifier
@@ -29,9 +38,9 @@ fun WorkoutListItem(workout: Workout, onClick: () -> Unit, onDelete: () -> Unit)
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            Text(text = workout.name, style = MaterialTheme.typography.titleMedium)
+            Text(text = workout.name, style = MaterialTheme.typography.titleMedium, color = Color(0xFFF2B872))
             IconButton(onClick = { showDeleteConfirmDialog = true }) {
-                Icon(Icons.Filled.Delete, contentDescription = "Excluir Treino", tint = MaterialTheme.colorScheme.error)
+                Icon(Icons.Filled.Delete, contentDescription = "Excluir Treino", tint = Color.White)
             }
         }
     }
