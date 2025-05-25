@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import br.com.puc.agenda_treinos.data.model.Exercise
@@ -98,7 +99,14 @@ fun AddEditExerciseDialog(
                         Text("Cancelar")
                     }
                     Spacer(modifier = Modifier.width(8.dp))
-                    Button(onClick = {
+                    Button(
+                        colors = ButtonColors(
+                            containerColor = Color(0xFFF2B872),
+                            contentColor = Color.White,
+                            disabledContainerColor = Color.Gray,
+                            disabledContentColor = Color.Gray
+                        ),
+                        onClick = {
                         var valid = true
                         if (exerciseName.isBlank()) {
                             nameError = "Nome é obrigatório."

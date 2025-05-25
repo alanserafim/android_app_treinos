@@ -10,6 +10,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import br.com.puc.agenda_treinos.ui.screens.workoutlist.composables.AddWorkoutDialog
@@ -34,7 +35,7 @@ fun WorkoutListScreen(
             )
         },
         floatingActionButton = {
-            FloatingActionButton(onClick = { showAddWorkoutDialog = true }) {
+            FloatingActionButton(onClick = { showAddWorkoutDialog = true }, containerColor = Color(0xFFF2B872)) {
                 Icon(Icons.Filled.Add, contentDescription = "Adicionar Treino")
             }
         }

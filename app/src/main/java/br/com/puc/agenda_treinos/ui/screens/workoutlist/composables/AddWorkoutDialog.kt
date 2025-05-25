@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 
@@ -43,7 +44,14 @@ fun AddWorkoutDialog(onDismiss: () -> Unit, onAddWorkout: (String) -> Unit) {
                         Text("Cancelar")
                     }
                     Spacer(modifier = Modifier.width(8.dp))
-                    Button(onClick = {
+                    Button(
+                        colors = ButtonColors(
+                            containerColor = Color(0xFFF2B872),
+                            contentColor = Color.White,
+                            disabledContainerColor = Color.Gray,
+                            disabledContentColor = Color.Gray
+                        ),
+                        onClick = {
                         if (workoutName.isNotBlank()) {
                             onAddWorkout(workoutName)
                         } else {

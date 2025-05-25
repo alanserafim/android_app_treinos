@@ -10,6 +10,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import br.com.puc.agenda_treinos.data.model.Exercise
 import br.com.puc.agenda_treinos.data.model.Workout
@@ -43,14 +44,18 @@ fun WorkoutDetailsScreen(
             FloatingActionButton(onClick = {
                 exerciseToEdit = null
                 showAddEditExerciseDialog = true
-            }) {
+            }, containerColor = Color(0xFFF2B872)
+            ) {
                 Icon(Icons.Filled.Add, contentDescription = "Adicionar Exercício")
             }
         }
     ) { paddingValues ->
         Column(modifier = Modifier.padding(paddingValues).fillMaxSize()) {
             if (exercises.isEmpty()) {
-                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                Box(
+                    modifier = Modifier.fillMaxSize().padding(paddingValues).padding(16.dp),
+                    contentAlignment = Alignment.Center,
+                    ) {
                     Text("Nenhum exercício neste treino. Clique no '+' para adicionar.")
                 }
             } else {
